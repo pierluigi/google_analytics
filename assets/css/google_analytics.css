@@ -1,0 +1,9 @@
+div#analytics {
+	width: 880px !important;
+}
+.dashboard_error {
+	font-size: 12px;
+	color: #666;
+	background: url('../images/ico_error.png') 0 0 no-repeat;
+	padding-left: 20px;
+}

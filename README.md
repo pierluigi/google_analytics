@@ -16,6 +16,12 @@ Use this module to access Google Analytics stats directly inside the FuelCMS das
 ## Installation
 Copy the google_analytics folder inside your /fuel/modules/ folder and edit the config/google_analytics.php file.
 
+This module is designed for the dashboard and you need to add it do the 'dashboards' key in your MY_fuel.php config, eg
+
+> $config['dashboards'] = array('google_analytics');
+
+
+
 ## FAQ
 Q. Where can I find my GA numeric profile ID?
 A. Here: http://www.google.com/support/analytics/bin/answer.py?hl=en-GB&answer=97705

@@ -24,4 +24,7 @@ This module is designed for the dashboard and you need to add it do the 'dashboa
 
 ## FAQ
 Q. Where can I find my GA numeric profile ID?
-A. Here: http://www.google.com/support/analytics/bin/answer.py?hl=en-GB&answer=97705
+A. Here: http://productforums.google.com/forum/#!topic/analytics/dRuAr1K4waI
+
+Q. What about the Tracking Code?
+A. See http://support.google.com/analytics/bin/answer.py?hl=en&answer=1032385

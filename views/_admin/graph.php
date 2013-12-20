@@ -1,6 +1,5 @@
 <?php if (isset($analytic_visits) OR isset($analytic_views)): ?>
-<?php if ($this->fuel_auth->has_permission('google_analytics')) : ?>
-<script src="<?=js_path('flot.js', 'google_analytics')?>"></script>
+<?=js('flot', 'google_analytics')?>
 <script type="text/javascript" >
 
 	jQuery(function($) {
@@ -67,5 +66,4 @@
 <h2><a href="https://www.google.com/analytics" title="Google Analytics login">Google Analytics</a> monthly report</h2>
 <img src="<?=img_path('ga.png', 'google_analytics')?>" alt="" />
 <div id="analytics" class="line" style="padding-bottom: 10px"></div>
-<?php endif; ?>
 <?php endif; ?>

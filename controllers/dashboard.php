@@ -37,46 +37,27 @@ class Dashboard extends Fuel_base_controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->config->load('google_analytics');
 
 	}
 
 	function index()
 	{
-		$this->ga_config = $this->config->item('google_analytics');
-		try {
-			$this->load->module_library('google_analytics', 'analytics', array(
-				'username' => $this->ga_config['email'],
-				'password' => $this->ga_config['password']
-			));		
-			$this->analytics->setProfileById('ga:' . $this->ga_config['profile_id']);
-			$end_date = date('Y-m-d');
-			$start_date = date('Y-m-d', strtotime('-1 month')); // Past month
-			$this->analytics->setDateRange($start_date, $end_date);
-			$visits = $this->analytics->getVisitors();
-			$views = $this->analytics->getPageviews();
-		}
-		catch(Exception $e) {
-			echo '<p class="dashboard_error">Error connecting to Google Analytics. Please check your settings.</p>';
-			die();
-		}
-		// build tables 
-		if (count($visits))
+		if ($this->fuel->auth->has_permission('google_analytics'))
 		{
-			foreach ($visits as $date => $visit)
-			{
-				$year = substr($date, 0, 4);
-				$month = substr($date, 4, 2);
-				$day = substr($date, 6, 2);
-				$utc = mktime(date('h') + 1, NULL, NULL, $month, $day, $year) * 1000;
-				$flot_datas_visits[] = '[' . $utc . ',' . $visit . ']';
-				$flot_datas_views[] = '[' . $utc . ',' . $views[$date] . ']';
+			try {
+
+				$visits = $this->fuel->google_analytics->visits();
+				$views = $this->fuel->google_analytics->views();
+
 			}
-			$flot_data_visits = '[' . implode(',', $flot_datas_visits) . ']';
-			$flot_data_views = '[' . implode(',', $flot_datas_views) . ']';
+			catch(Exception $e) {
+				echo '<p class="dashboard_error">'.lang('google_analytics_connect_error').'</p>';
+				die();
+			}
+			$data['analytic_visits'] = json_encode($visits);
+			$data['analytic_views'] = json_encode($views);
+			$this->load->view('_admin/graph', $data);
 		}
-		$data['analytic_visits'] = $flot_data_visits;
-		$data['analytic_views'] = $flot_data_views;
-		$this->load->view('graph.php', $data);
+		
 	}
 }

@@ -1,7 +1,7 @@
 # Google Analytics - FuelCMS Module
 
 FuelCMS Website (http://getfuelcms.com/)
-Version: 0.1
+Version: 1
 
 ## Author
 Initial port from PyroCMS by Pierlo (http://getfuelcms.com/forums/profile/710/pierlo)
@@ -24,7 +24,7 @@ This module is designed for the dashboard and you need to add it do the 'dashboa
 
 ## FAQ
 Q. Where can I find my GA numeric profile ID?
-A. Here: http://productforums.google.com/forum/#!topic/analytics/dRuAr1K4waI
+A. Here: [http://productforums.google.com/forum/#!topic/analytics/dRuAr1K4waI](http://productforums.google.com/forum/#!topic/analytics/dRuAr1K4waI)
 
 Q. What about the Tracking Code?
-A. See http://support.google.com/analytics/bin/answer.py?hl=en&answer=1032385
+A. See [http://support.google.com/analytics/bin/answer.py?hl=en&answer=1032385](http://support.google.com/analytics/bin/answer.py?hl=en&answer=1032385)
